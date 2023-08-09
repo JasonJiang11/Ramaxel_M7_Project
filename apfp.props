@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding = "utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <patcom>
+      <Mag1>false</Mag1>
+      <Mag2>false</Mag2>
+      <Mag3>false</Mag3>
+      <Mag5>true</Mag5>
+      <PatcomOptions> -U -E -MA</PatcomOptions>
+    </patcom>
+  </ItemDefinitionGroup>
+</Project>

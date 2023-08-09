@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemDefinitionGroup>
+		<patcom>
+			<Mag1>false</Mag1>
+			<Mag2>false</Mag2>
+			<Mag3>false</Mag3>
+			<Mag5>false</Mag5>
+			<Mag6>false</Mag6>
+			<Mag7>true</Mag7>
+			<ContinueOnError>True</ContinueOnError>
+			<PatcomOptions> -U -E</PatcomOptions>
+			<PatcomOutput></PatcomOutput>
+		</patcom>
+	</ItemDefinitionGroup>
+	<PropertyGroup Label="Globals">
+		<DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
+	</PropertyGroup>
+</Project>

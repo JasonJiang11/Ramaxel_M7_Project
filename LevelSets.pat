@@ -1,0 +1,343 @@
+#include "PatternIncludes.h"
+
+//pattern to check levelset for pe drive
+//the pattern will loop on setting vih to 0.2V and 1.0V
+PATTERN(PAT__PE_LevelSets)
+
+@{
+//load dmain with all 1s so that it is at vih
+for (auto apg = enApgNumberMag7::t_APG1; apg <= enApgNumberMag7::t_APG2; ++apg)
+{
+	apg_xmain_set(apg, 0);
+	for (auto dg = enUnitNumberMag7::t_UNIT1; dg <= enUnitNumberMag7::t_UNIT4; ++dg)
+	{
+		apg_dmain_set(apg, dg, 0xffff);
+	}
+}
+
+@}
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET			
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% init_delay:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT2, DECR, AON
+MAR			CJMPNZ, init_delay
+
+//only set is available for LS_PE_DRV
+//5 ms between levelsets
+//5 ms to begin to change
+% lvlset1:
+LEVELSET LS_PE_DRV, builtin_UsedPins, SET, PE_VIH 0.2 V , PE_VIL 0.0 V, PE_VPEAK t_PEAK_NONE, PE_VTT 0.0 V, PE_RTERM 5000000, PE_VTERM 0.0 V, PE_PKADJ 0.0
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset1:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset1
+
+% lvlset2:
+LEVELSET LS_PE_DRV, builtin_UsedPins, SET, PE_VIH 1.1 V, PE_VIL 0.0 V, PE_VPEAK t_PEAK_NONE, PE_VTT 0.0 V, PE_RTERM 5000000, PE_VTERM 0.0 V, PE_PKADJ 0.0
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset2:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset2
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT3, DECR, AON
+MAR			CJMPNZ, lvlset1
+
+% wait_for_time_to_change:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT2, DECR, AON
+MAR			CJMPNZ, wait_for_time_to_change
+
+% End :		
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+END_PATTERN
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//pattern to check levelset for dps
+//the pattern will loop on setting dps to 0V and 1.0V
+
+PATTERN(PAT__DPS_LevelSets_set)
+
+@{
+@}
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+//5 ms between levelsets
+//5 ms to begin to change
+% lvlset1:
+LEVELSET LS_DPS, builtin_UsedDPS, SET
+UDATA		1.0 V
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset1:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset1
+
+% lvlset2:
+LEVELSET LS_DPS, builtin_UsedDPS, SET
+UDATA		0.0 V
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset2:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset2
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT3, DECR, AON
+MAR			CJMPNZ, lvlset1
+
+% wait_for_time_to_change:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT2, DECR, AON
+MAR			CJMPNZ, wait_for_time_to_change
+
+% End :
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET					   
+END_PATTERN
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//pattern to check levelset for dps
+//the pattern will loop on tweaking dps from 0V and 1.0V in 100 mV steps
+
+PATTERN(PAT__DPS_LevelSets_twk)
+
+@{
+@}
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+//5 ms between levelsets
+//5 ms to begin to change
+%
+LEVELSET LS_DPS, builtin_UsedDPS, SET
+UDATA		0.0 V
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset1:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset1
+
+%tweak_dps:
+LEVELSET LS_DPS, builtin_UsedDPS, TWEAK
+UDATA		100 MV
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset2:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset2
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT3, DECR, AON
+MAR			CJMPNZ, tweak_dps
+
+% wait_for_time_to_change:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT2, DECR, AON
+MAR			CJMPNZ, wait_for_time_to_change
+
+%
+LEVELSET LS_DPS, builtin_UsedDPS, SET
+UDATA		0.0 V
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset3:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset3
+
+% End :
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET					   
+END_PATTERN
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// pattern to check levelset for HVs
+//the pattern will loop on setting HV to 0V and 1.0V
+
+PATTERN(PAT__HV_LevelSets_set)
+
+@{
+@}
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+//5 ms between levelsets
+//5 ms to begin to change
+% lvlset1:
+LEVELSET LS_HV_VOLTAGE, pl_VREFQ, SET
+UDATA		1.0 V
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset1:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset1
+
+% lvlset2:
+LEVELSET	LS_HV_VOLTAGE, pl_VREFQ, SET
+UDATA		0.0 V
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset2:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset2
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT3, DECR, AON
+MAR			CJMPNZ, lvlset1
+
+% wait_for_time_to_change:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT2, DECR, AON
+MAR			CJMPNZ, wait_for_time_to_change
+
+% End :
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+END_PATTERN
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//pattern to check levelset for HV
+//the pattern will loop on tweaking HV from 0V and 1.0V in 100 mV steps
+
+PATTERN(PAT__HV_LevelSets_twk)
+
+@{
+@}
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+//5 ms between levelsets
+//5 ms to begin to change
+%
+LEVELSET LS_HV_VOLTAGE, pl_VREFQ, TWEAK
+UDATA		0.0 V
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset1:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset1
+
+% tweak_hv:
+LEVELSET LS_HV_VOLTAGE, pl_VREFQ, TWEAK
+UDATA		100 MV
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+
+% wait_before_next_lvlset2:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT1, DECR, AON
+MAR			CJMPNZ, wait_before_next_lvlset2
+
+%
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT3, DECR, AON
+MAR			CJMPNZ, tweak_hv
+
+% wait_for_time_to_change:
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+COUNT		COUNT2, DECR, AON
+MAR			CJMPNZ, wait_for_time_to_change
+
+% End :
+PINFUNC1	PS_DATA_IN, TS_LEVELSET
+PINFUNC2	PS_DATA_IN, TS_LEVELSET
+END_PATTERN
+

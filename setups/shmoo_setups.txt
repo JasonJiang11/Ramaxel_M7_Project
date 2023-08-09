@@ -1,0 +1,120 @@
+version:4
+shmoo:uv_dataeye_fs
+	title:uv_voh vs. uv_stb
+	type:0
+	order:0
+
+	xlegend:uv_stb
+	xmajor:4
+	xdigits:3
+	xpoints:51
+	xcount:1
+
+	ylegend:uv_voh
+	ymajor:3
+	ydigits:3
+	ypoints:41
+	ycount:3
+
+	scount:2
+
+	xparam:uv_stb
+	min:5.5
+	max:6.5
+
+	yparam:uv_voh
+	min:0
+	max:1
+
+	yparam:uv_vol
+	min:0
+	max:1
+
+	yparam:SHM_DATAEYE
+	min:1
+	max:1
+
+	callback_type:
+	callback_name:
+
+	symbol:Fail,255,0,0,.
+	symbol:Pass,0,255,0,*
+
+shmoo:uv_dataeye_ss
+	title:uv_voh vs. uv_dqs_dq_offset
+	type:0
+	order:0
+
+	xlegend:uv_dqs_dq_offset
+	xmajor:3
+	xdigits:0
+	xpoints:51
+	xcount:1
+
+	ylegend:uv_voh
+	ymajor:3
+	ydigits:3
+	ypoints:41
+	ycount:3
+
+	scount:2
+
+	xparam:uv_dqs_dq_offset
+	min:-100
+	max:900
+
+	yparam:uv_voh
+	min:0
+	max:1
+
+	yparam:uv_vol
+	min:0
+	max:1
+
+	yparam:SHM_DATAEYE
+	min:1
+	max:1
+
+	callback_type:
+	callback_name:
+
+	symbol:Fail,255,0,0,.
+	symbol:Pass,0,255,0,*
+
+shmoo:uv_tornado_fs
+	title:uv_rate vs. uv_stb
+	type:0
+	order:0
+
+	xlegend:uv_stb
+	xmajor:4
+	xdigits:3
+	xpoints:51
+	xcount:1
+
+	ylegend:uv_rate
+	ymajor:4
+	ydigits:2
+	ypoints:81
+	ycount:2
+
+	scount:2
+
+	xparam:uv_stb
+	min:5.5
+	max:6.5
+
+	yparam:uv_rate
+	min:1.2
+	max:2
+
+	yparam:SHM_TORNADO
+	min:1
+	max:1
+
+	callback_type:
+	callback_name:
+
+	symbol:Fail,255,0,0,.
+	symbol:Pass,0,255,0,*
+

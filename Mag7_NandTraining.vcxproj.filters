@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{e8e21e3d-a263-4616-9b64-75056f19f3ce}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;fi;fd</Extensions>
+    </Filter>
+    <Filter Include="PrecompiledHeaders">
+      <UniqueIdentifier>{4fc04c85-e4c2-4df9-81ad-7f14a8445ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Patterns">
+      <UniqueIdentifier>{bad1c9d8-1c72-4ecf-8c00-11045617ddd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PatternHelpers">
+      <UniqueIdentifier>{cb358aea-1f08-4f27-8600-ee336fb4f3f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{8ad98892-4403-41fb-a4bd-0b0a4a91aebc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestBlocks">
+      <UniqueIdentifier>{6b0c875b-be7d-404d-ba1f-abd263df8f41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulator">
+      <UniqueIdentifier>{39704162-ab4d-4ff8-9baa-5c402adc8eb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tester Source Files">
+      <UniqueIdentifier>{e501422a-7b5f-4eb1-bdd2-57044a2e4a64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pattern CPPs">
+      <UniqueIdentifier>{c52370ba-3aae-4f79-bd83-0363bb29f8fd}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat;for;f90</Extensions>
+    </Filter>
+    <Filter Include="Watch Dog">
+      <UniqueIdentifier>{682f7825-8c73-48ee-a368-838eb5829882}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PrecompiledHeaders</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksContact.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksReadId.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksPowerOn.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksReadStatus.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksLeakage.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="Datalogs.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Onfi4p2Structs.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="i2c.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveformUtils.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="OnfiFeatures.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceStatus.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksFeatures.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksERP.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksParameters.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="file_io.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksSimulator.cpp">
+      <Filter>Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="DutPins.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Levels.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PatternInitializations.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PinAssignments.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PinLists.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PinScrambles.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceTables.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SiteBegin.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timings.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shmoo.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksTraining.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="file_mgmt.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="dbm.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlsConfig.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlsTask.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlsUserTasks.cpp">
+      <Filter>Tester Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksDV.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksFlsBench.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="watchdog.cpp">
+      <Filter>Watch Dog</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBlocksWatchDog.cpp">
+      <Filter>TestBlocks</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTrainings_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="DV_pats_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="Features_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPlaneErase_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPlaneProgram_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPlaneRead_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadId_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadParameters_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadStatus_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="Resets_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="SinglePlaneErase_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="SinglePlaneProgram_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="SinglePlaneRead_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="vpulse_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="WriteReadCache_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSets_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+    <ClCompile Include="sim_dg_add_MAG7.CPP">
+      <Filter>Pattern CPPs</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PinLists.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>PrecompiledHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="DutPins.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineCounters.h">
+      <Filter>PatternHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternMacros.h">
+      <Filter>PatternHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="MacroUtils.h">
+      <Filter>PatternHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternResources.h">
+      <Filter>PatternHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Levels.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tester.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceSpecs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OnfiPatternMacros.h">
+      <Filter>PatternHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternIncludes.h">
+      <Filter>PatternHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternInitializations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="i2c.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="bitmask.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Datalogs.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="DutLoopManager.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Onfi4p2Structs.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveformUtils.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="OnfiFeatures.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceStatus.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBlocks.h">
+      <Filter>TestBlocks</Filter>
+    </ClInclude>
+    <ClInclude Include="file_io.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="shmoo.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="file_mgmt.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="TesterSpec.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="dbm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlsConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlsStringStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlsTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlsTimeStampLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlsUserTasks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlsPatternMacros.h">
+      <Filter>PatternHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="watchdog.h">
+      <Filter>Watch Dog</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="apfp.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="APFP10.INI" />
+  </ItemGroup>
+  <ItemGroup>
+    <patcom Include="ReadId.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="ReadStatus.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="Resets.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="Features.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="WriteReadCache.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="SinglePlaneErase.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="SinglePlaneProgram.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="SinglePlaneRead.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="MultiPlaneErase.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="MultiPlaneProgram.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="MultiPlaneRead.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="DataTrainings.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="ReadParameters.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="sim_dg_add.pat">
+      <Filter>Simulator</Filter>
+    </patcom>
+    <patcom Include="vpulse.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="LevelSets.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+    <patcom Include="DV_pats.pat">
+      <Filter>Patterns</Filter>
+    </patcom>
+  </ItemGroup>
+</Project>
